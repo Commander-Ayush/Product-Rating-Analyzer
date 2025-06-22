@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Product Delivery Analyzer",
+    "version": "1.0",
+    "description": "Analyzes product delivery percentages on e-commerce sites",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://app.roposoclout.com/marketplace/*",
+        "https://roposo.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://app.roposoclout.com/marketplace/*",
+                "https://roposo.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "styles.css"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Analyze Product Delivery"
+    }
+}
